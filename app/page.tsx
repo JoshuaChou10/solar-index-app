@@ -6,17 +6,17 @@ export default function Home() {
   const [activeHeatmap, setActiveHeatmap] = useState('water');
 
   const sampleData = {
-    water: [
+    solar1: [
       { lat: 43.65107, lon: -79.347015, value: 75 },
       { lat: 44.0, lon: -78.75, value: 50 },
       { lat: 42.98339, lon: -81.23304, value: 85 },
     ],
-    temperature: [
+    solar2: [
       { lat: 43.65107, lon: -79.347015, value: 25 },
       { lat: 44.0, lon: -78.75, value: 30 },
       { lat: 42.98339, lon: -81.23304, value: 35 },
     ],
-    solar: [
+    solar3: [
       { lat: 43.65107, lon: -79.347015, value: 90 },
       { lat: 44.0, lon: -78.75, value: 80 },
       { lat: 42.98339, lon: -81.23304, value: 85 },
@@ -36,33 +36,35 @@ export default function Home() {
         {/* Heatmap Switcher */}
         <div className="flex gap-4">
           <button
-            onClick={() => setActiveHeatmap('water')}
+            onClick={() => setActiveHeatmap('solar1')}
             className={`px-4 py-2 border rounded ${
               activeHeatmap === 'water' ? 'bg-blue-500 text-white' : 'bg-white text-black'
             }`}
           >
-            Water Collection
+            Solar1
           </button>
           <button
-            onClick={() => setActiveHeatmap('temperature')}
+            onClick={() => setActiveHeatmap('solar2')}
             className={`px-4 py-2 border rounded ${
               activeHeatmap === 'temperature' ? 'bg-red-500 text-white' : 'bg-white text-black'
             }`}
           >
-            Average Temperature
+            Solar2
           </button>
           <button
-            onClick={() => setActiveHeatmap('solar')}
+            onClick={() => setActiveHeatmap('solar3')}
             className={`px-4 py-2 border rounded ${
               activeHeatmap === 'solar' ? 'bg-yellow-500 text-black' : 'bg-white text-black'
             }`}
           >
-            Solar Index
+            Solar3
           </button>
         </div>
 
         {/* Heatmap Container */}
+
         <Heatmap activeHeatmap={activeHeatmap} sampleData={sampleData} />
+
       </main>
 
       {/* Footer */}
