@@ -3,5 +3,5 @@ function getLatitude(x: number, y: number, z: number) {
 }
 
 function getLongitude(x: number, y: number) {
-  return Math.atan(y, x);
+  return Math.atan2(y, x);
 }
