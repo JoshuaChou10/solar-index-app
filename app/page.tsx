@@ -5,20 +5,20 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 
 export default function Home() {
-  const [activeHeatmap, setActiveHeatmap] = useState("water");
+  const [activeHeatmap, setActiveHeatmap] = useState("solar1");
 
   const sampleData = {
-    water: [
+    solar1: [
       { lat: 43.65107, lon: -79.347015, value: 75 },
       { lat: 44.0, lon: -78.75, value: 50 },
       { lat: 42.98339, lon: -81.23304, value: 85 },
     ],
-    temperature: [
+    solar2: [
       { lat: 43.65107, lon: -79.347015, value: 25 },
       { lat: 44.0, lon: -78.75, value: 30 },
       { lat: 42.98339, lon: -81.23304, value: 35 },
     ],
-    solar: [
+    solar3: [
       { lat: 43.65107, lon: -79.347015, value: 90 },
       { lat: 44.0, lon: -78.75, value: 80 },
       { lat: 42.98339, lon: -81.23304, value: 85 },
@@ -31,7 +31,7 @@ export default function Home() {
       <header className="text-center">
         <h1 className="text-3xl font-bold">Switchable Heatmaps</h1>
         <p className="text-lg">
-          Water Collection | Average Temperature | Solar Index
+          solar1 | solar2 | solar3
         </p>
       </header>
 
@@ -40,24 +40,24 @@ export default function Home() {
         {/* Heatmap Switcher */}
         <div className="flex gap-4">
           <button
-            onClick={() => setActiveHeatmap("water")}
+            onClick={() => setActiveHeatmap("solar1")}
             className={`px-4 py-2 border rounded ${
-              activeHeatmap === "water"
+              activeHeatmap === "solar1"
                 ? "bg-blue-500 text-white"
                 : "bg-white text-black"
             }`}
           >
-            Water Collection
+            Solar1 
           </button>
           <button
-            onClick={() => setActiveHeatmap("temperature")}
+            onClick={() => setActiveHeatmap("solar2")}
             className={`px-4 py-2 border rounded ${
-              activeHeatmap === "temperature"
+              activeHeatmap === "solar2"
                 ? "bg-red-500 text-white"
                 : "bg-white text-black"
             }`}
           >
-            Average Temperature
+            Solar2
           </button>
           <button
             onClick={() => setActiveHeatmap("solar")}
@@ -67,7 +67,7 @@ export default function Home() {
                 : "bg-white text-black"
             }`}
           >
-            Solar Index
+            Solar3
           </button>
         </div>
 
