@@ -64,7 +64,6 @@ export default function Home() {
     });
   };
 
- 
   useEffect(() => {
     // Import heatmap.js dynamically
     import('heatmap.js').then(async (heatmap) => {
@@ -89,9 +88,7 @@ export default function Home() {
       });
     });
   }, []);
- 
   
-};
   // Re-render the heatmap whenever the active heatmap changes
   useEffect(() => {
     renderHeatmap();
