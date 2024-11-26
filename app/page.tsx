@@ -1,9 +1,11 @@
-'use client';
-import { useState } from 'react';
-import Heatmap from '../components/Heatmap';
+"use client";
+import { useState } from "react";
+import Heatmap from "../components/Heatmap";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 export default function Home() {
-  const [activeHeatmap, setActiveHeatmap] = useState('water');
+  const [activeHeatmap, setActiveHeatmap] = useState("water");
 
   const sampleData = {
     water: [
@@ -28,7 +30,9 @@ export default function Home() {
       {/* Title */}
       <header className="text-center">
         <h1 className="text-3xl font-bold">Switchable Heatmaps</h1>
-        <p className="text-lg">Water Collection | Average Temperature | Solar Index</p>
+        <p className="text-lg">
+          Water Collection | Average Temperature | Solar Index
+        </p>
       </header>
 
       {/* Main Content */}
@@ -36,25 +40,31 @@ export default function Home() {
         {/* Heatmap Switcher */}
         <div className="flex gap-4">
           <button
-            onClick={() => setActiveHeatmap('water')}
+            onClick={() => setActiveHeatmap("water")}
             className={`px-4 py-2 border rounded ${
-              activeHeatmap === 'water' ? 'bg-blue-500 text-white' : 'bg-white text-black'
+              activeHeatmap === "water"
+                ? "bg-blue-500 text-white"
+                : "bg-white text-black"
             }`}
           >
             Water Collection
           </button>
           <button
-            onClick={() => setActiveHeatmap('temperature')}
+            onClick={() => setActiveHeatmap("temperature")}
             className={`px-4 py-2 border rounded ${
-              activeHeatmap === 'temperature' ? 'bg-red-500 text-white' : 'bg-white text-black'
+              activeHeatmap === "temperature"
+                ? "bg-red-500 text-white"
+                : "bg-white text-black"
             }`}
           >
             Average Temperature
           </button>
           <button
-            onClick={() => setActiveHeatmap('solar')}
+            onClick={() => setActiveHeatmap("solar")}
             className={`px-4 py-2 border rounded ${
-              activeHeatmap === 'solar' ? 'bg-yellow-500 text-black' : 'bg-white text-black'
+              activeHeatmap === "solar"
+                ? "bg-yellow-500 text-black"
+                : "bg-white text-black"
             }`}
           >
             Solar Index
@@ -64,6 +74,10 @@ export default function Home() {
         {/* Heatmap Container */}
         <Heatmap activeHeatmap={activeHeatmap} sampleData={sampleData} />
       </main>
+      <SidebarProvider>
+        <AppSidebar />
+        {/*  */}
+      </SidebarProvider>
 
       {/* Footer */}
       <footer className="text-center">
