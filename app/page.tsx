@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Heatmap from '../components/Heatmap';
 
 export default function Home() {
-  const [activeHeatmap, setActiveHeatmap] = useState('water');
+  const [activeHeatmap, setActiveHeatmap] = useState('solar1');
 
   const sampleData = {
     solar1: [
@@ -28,7 +28,7 @@ export default function Home() {
       {/* Title */}
       <header className="text-center">
         <h1 className="text-3xl font-bold">Switchable Heatmaps</h1>
-        <p className="text-lg">Water Collection | Average Temperature | Solar Index</p>
+        <p className="text-lg">Solar1 | Solar2 | Solar3</p>
       </header>
 
       {/* Main Content */}
@@ -38,7 +38,7 @@ export default function Home() {
           <button
             onClick={() => setActiveHeatmap('solar1')}
             className={`px-4 py-2 border rounded ${
-              activeHeatmap === 'water' ? 'bg-blue-500 text-white' : 'bg-white text-black'
+              activeHeatmap === 'solar1' ? 'bg-blue-500 text-white' : 'bg-white text-black'
             }`}
           >
             Solar1
@@ -46,7 +46,7 @@ export default function Home() {
           <button
             onClick={() => setActiveHeatmap('solar2')}
             className={`px-4 py-2 border rounded ${
-              activeHeatmap === 'temperature' ? 'bg-red-500 text-white' : 'bg-white text-black'
+              activeHeatmap === 'solar2' ? 'bg-red-500 text-white' : 'bg-white text-black'
             }`}
           >
             Solar2
@@ -54,7 +54,7 @@ export default function Home() {
           <button
             onClick={() => setActiveHeatmap('solar3')}
             className={`px-4 py-2 border rounded ${
-              activeHeatmap === 'solar' ? 'bg-yellow-500 text-black' : 'bg-white text-black'
+              activeHeatmap === 'solar3' ? 'bg-yellow-500 text-black' : 'bg-white text-black'
             }`}
           >
             Solar3
