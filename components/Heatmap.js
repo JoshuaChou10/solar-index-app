@@ -35,9 +35,9 @@ export default function Heatmap({ activeHeatmap, sampleData }) {
 
     // Add the heatmap layer
     L.heatLayer(heatData, {
-      radius: 25, // Radius of influence for each point
-      maxZoom: 12, // Maximum zoom level for aggregation
-      blur: 15, // Blur intensity
+      radius: 10, // Radius of influence for each point
+      maxZoom: 10, // Maximum zoom level for aggregation
+      blur: 16, // Blur intensity
       max: 100, // Maximum intensity value
     }).addTo(mapInstance.current);
   }, [activeHeatmap, sampleData]);
@@ -45,10 +45,16 @@ export default function Heatmap({ activeHeatmap, sampleData }) {
   return (
     <div
       ref={mapContainer}
-      className="relative w-full h-[600px] bg-gray-200"
-      style={{ position: 'relative' }}
+      className="relative"
+      style={{
+        width: '100%', // Full width
+        height: '800px', // Adjusted height for a longer map
+        width: '60rem', // Optional: Limit maximum width
+        margin: '0 auto', // Center the map horizontally
+      }}
     >
       {/* Leaflet map will render here */}
     </div>
+
   );
 }
