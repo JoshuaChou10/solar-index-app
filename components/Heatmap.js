@@ -35,9 +35,9 @@ export default function Heatmap({ activeHeatmap, sampleData }) {
 
     // Add the heatmap layer
     L.heatLayer(heatData, {
-      radius: 25, // Radius of influence for each point
-      maxZoom: 12, // Maximum zoom level for aggregation
-      blur: 15, // Blur intensity
+      radius: 10, // Radius of influence for each point
+      maxZoom: 10, // Maximum zoom level for aggregation
+      blur: 16, // Blur intensity
       max: 100, // Maximum intensity value
     }).addTo(mapInstance.current);
   }, [activeHeatmap, sampleData]);

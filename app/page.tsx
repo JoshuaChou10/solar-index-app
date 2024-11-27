@@ -1,50 +1,57 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Heatmap from "../components/Heatmap";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 
 export default function Home() {
   const [activeHeatmap, setActiveHeatmap] = useState("solar1");
-
-  const sampleData = {
-    solar1: [ // Monocrystalline
-      { lat: 43.65107, lon: -79.347015, value: 75 },
-      { lat: 44.0, lon: -78.75, value: 50 },
-      { lat: 42.98339, lon: -81.23304, value: 85 },
-      { lat: 49.282729, lon: -123.120738, value: 70 },
-      { lat: 53.546124, lon: -113.493823, value: 65 },
-      { lat: 45.42153, lon: -75.697193, value: 80 },
-      { lat: 48.428421, lon: -123.365644, value: 55 },
-      { lat: 46.813878, lon: -71.207981, value: 60 },
-      { lat: 50.445211, lon: -104.618894, value: 68 },
-      { lat: 47.560539, lon: -52.712831, value: 45 }
-    ],
-    solar2: [ // Polycrystalline
-      { lat: 43.65107, lon: -79.347015, value: 25 },
-      { lat: 44.0, lon: -78.75, value: 30 },
-      { lat: 42.98339, lon: -81.23304, value: 35 },
-      { lat: 49.282729, lon: -123.120738, value: 40 },
-      { lat: 53.546124, lon: -113.493823, value: 55 },
-      { lat: 45.42153, lon: -75.697193, value: 28 },
-      { lat: 48.428421, lon: -123.365644, value: 30 },
-      { lat: 46.813878, lon: -71.207981, value: 38 },
-      { lat: 50.445211, lon: -104.618894, value: 45 },
-      { lat: 47.560539, lon: -52.712831, value: 20 }
-    ],
-    solar3: [ // Thin-Film
-      { lat: 43.65107, lon: -79.347015, value: 90 },
-      { lat: 44.0, lon: -78.75, value: 80 },
-      { lat: 42.98339, lon: -81.23304, value: 85 },
-      { lat: 49.282729, lon: -123.120738, value: 95 },
-      { lat: 53.546124, lon: -113.493823, value: 75 },
-      { lat: 45.42153, lon: -75.697193, value: 88 },
-      { lat: 48.428421, lon: -123.365644, value: 92 },
-      { lat: 46.813878, lon: -71.207981, value: 85 },
-      { lat: 50.445211, lon: -104.618894, value: 80 },
-      { lat: 47.560539, lon: -52.712831, value: 70 }
-    ]
-  };
+  const [sampleData, setSampleData] = useState({});
+  useEffect(() => {
+    fetch("/api/data").then((res) => res.json()).then((data) => {
+      setSampleData(data)
+    })
+    console.log(sampleData)
+    
+  }, []);
+  // const sampleData = {
+  //   solar1: [ // Monocrystalline
+  //     { lat: 43.65107, lon: -79.347015, value: 75 },
+  //     { lat: 44.0, lon: -78.75, value: 50 },
+  //     { lat: 42.98339, lon: -81.23304, value: 85 },
+  //     { lat: 49.282729, lon: -123.120738, value: 70 },
+  //     { lat: 53.546124, lon: -113.493823, value: 65 },
+  //     { lat: 45.42153, lon: -75.697193, value: 80 },
+  //     { lat: 48.428421, lon: -123.365644, value: 55 },
+  //     { lat: 46.813878, lon: -71.207981, value: 60 },
+  //     { lat: 50.445211, lon: -104.618894, value: 68 },
+  //     { lat: 47.560539, lon: -52.712831, value: 45 }
+  //   ],
+  //   solar2: [ // Polycrystalline
+  //     { lat: 43.65107, lon: -79.347015, value: 25 },
+  //     { lat: 44.0, lon: -78.75, value: 30 },
+  //     { lat: 42.98339, lon: -81.23304, value: 35 },
+  //     { lat: 49.282729, lon: -123.120738, value: 40 },
+  //     { lat: 53.546124, lon: -113.493823, value: 55 },
+  //     { lat: 45.42153, lon: -75.697193, value: 28 },
+  //     { lat: 48.428421, lon: -123.365644, value: 30 },
+  //     { lat: 46.813878, lon: -71.207981, value: 38 },
+  //     { lat: 50.445211, lon: -104.618894, value: 45 },
+  //     { lat: 47.560539, lon: -52.712831, value: 20 }
+  //   ],
+  //   solar3: [ // Thin-Film
+  //     { lat: 43.65107, lon: -79.347015, value: 90 },
+  //     { lat: 44.0, lon: -78.75, value: 80 },
+  //     { lat: 42.98339, lon: -81.23304, value: 85 },
+  //     { lat: 49.282729, lon: -123.120738, value: 95 },
+  //     { lat: 53.546124, lon: -113.493823, value: 75 },
+  //     { lat: 45.42153, lon: -75.697193, value: 88 },
+  //     { lat: 48.428421, lon: -123.365644, value: 92 },
+  //     { lat: 46.813878, lon: -71.207981, value: 85 },
+  //     { lat: 50.445211, lon: -104.618894, value: 80 },
+  //     { lat: 47.560539, lon: -52.712831, value: 70 }
+  //   ]
+  // };
   
   const solarPanelInfo = {
     solar1: {
